@@ -75,7 +75,7 @@ namespace CRMGURU.TestTask.Controllers
         {
            
                 ViewBag.Cities = db.Cities;
-            ViewBag.Regions = db.Regions;
+                ViewBag.Regions = db.Regions;
                 return PartialView(db.Countries);
             
         }
@@ -83,22 +83,18 @@ namespace CRMGURU.TestTask.Controllers
         public void SaveResult(ApiInfo obj)
         {
             
-            using (DataContext db = new DataContext())
-            {
+           
               int CityId =  db.FindCity(obj.capital);
               int RegionId = db.FindRegion(obj.region);
                 Country country = new Country(obj,CityId,RegionId);
                 if (db.ContainsCode(country.Code))
                     db.RefreshCountry(country);
                 else db.AddCountry(country);
-            }
+            
         }
         public ActionResult Index()
         {
 
-
-
-            GetApiInfo("Russia");
                 return View();
         }
     }

@@ -1,8 +1,4 @@
 ﻿
-
-
-
-
 $("#show_info").click(function () {
     
     var name = $("#text_input").val();
