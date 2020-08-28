@@ -1,0 +1,17 @@
+﻿
+
+@{
+    if (Model != null)
+    {
+    <p><strong>Название: </strong> <div class="data">@Model.name</div></p>
+    <p><strong>Код: </strong> <div class="data">@Model.alpha3Code</div></p>
+    <p><strong>Регион: </strong> <div class="data">@Model.region</div></p>
+    <p><strong>Столица: </strong><div class="data">@Model.capital</div></p>
+    <p><strong>Население: </strong> <div class="data">@Model.population</div></p>
+    <p><strong>Площадь: </strong> <div class="data">@Model.area</div></p>
+    } else
+    {
+        <p>Не удалось найти информацию об этой стране</p>
+    }
+    }
+ 

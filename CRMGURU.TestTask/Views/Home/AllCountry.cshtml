@@ -1,0 +1,56 @@
+﻿<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Название</th>
+            <th scope="col">Код</th>
+            <th scope="col">Регион</th>
+            <th scope="col">Столица</th>
+            <th scope="col">Население</th>
+            <th scope="col">Площадь</th>
+        </tr>
+    </thead>
+    @{
+        int i = 1;
+
+
+        foreach (CRMGURU.TestTask.Models.Country country in Model)
+        {
+            string region = "", city = "";
+            foreach (CRMGURU.TestTask.Models.City city1 in ViewBag.Cities)
+            {
+                if (city1.Id == country.CityId)
+                {
+                    city = city1.Name;
+                }
+            }
+
+            foreach (CRMGURU.TestTask.Models.Region region1 in ViewBag.Regions)
+            {
+                if (region1.Id == country.RegionId)
+                {
+                    region = region1.Name;
+                }
+            }
+
+
+
+            <tbody>
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@country.Name</td>
+                    <td>@country.Code</td>
+                    <td>@region</td>
+                    <td>@city</td>
+                    <td>@country.Population</td>
+                    <td>@country.Area</td>
+                </tr>
+            </tbody>
+
+
+
+
+            i++;
+        }
+    }
+</table>
